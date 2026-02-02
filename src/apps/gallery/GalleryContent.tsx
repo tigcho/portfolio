@@ -12,7 +12,7 @@ export default function GalleryContent() {
 	const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
 	useEffect(() => {
-		fetch("${import.meta.env.BASE_URL}gallery.txt")
+		fetch(import.meta.env.BASE_URL + "gallery.txt")
 			.then((res) => {
 				if (!res.ok) throw new Error("Failed to load gallery");
 				return res.text();
@@ -26,7 +26,8 @@ export default function GalleryContent() {
 				const loadedImages = paths.map((path) => {
 					const filename = path.split("/").pop() || "";
 					const name = filename.replace(/\.[^/.]+$/, "");
-					return { src: path, name };
+					const adjustedPath = path.startsWith("/") ? path.slice(1) : path;
+					return { src: import.meta.env.BASE_URL + adjustedPath, name };
 				});
 
 				setImages(loadedImages);
