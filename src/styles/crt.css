@@ -225,3 +225,104 @@
         padding: 8px;
     }
 }
+
+/* ==================== POWER CONTROLS ==================== */
+
+.crt-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.crt-led {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.crt-led-on {
+    background: radial-gradient(circle, #00ff00 0%, #00aa00 60%, #006600 100%);
+    box-shadow:
+        0 0 8px #00ff00,
+        0 0 16px rgba(0, 255, 0, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.crt-led-off {
+    background: radial-gradient(circle, #333 0%, #222 60%, #111 100%);
+    box-shadow:
+        inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.crt-power-button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(
+        180deg,
+        #666 0%,
+        #444 50%,
+        #333 100%
+    );
+    border: 2px solid;
+    border-color: #777 #222 #222 #777;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.crt-power-button:hover {
+    background: linear-gradient(
+        180deg,
+        #777 0%,
+        #555 50%,
+        #444 100%
+    );
+}
+
+.crt-power-button:active {
+    border-color: #222 #777 #777 #222;
+    transform: translateY(1px);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.crt-power-icon {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1;
+}
+
+.crt-power-button:hover .crt-power-icon {
+    color: #fff;
+}
+
+.crt-screen-off {
+    background: #0a0a0a !important;
+}
+
+.crt-screen-off::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 100% 100% at 30% 30%,
+        rgba(40, 40, 40, 0.3) 0%,
+        transparent 50%
+    );
+    z-index: 1;
+}
+
+.crt-monitor::after {
+    display: none;
+}

@@ -1,12 +1,24 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import "./styles/index.css";
+import "../styles/index.css";
 
-export default function CRTContainer({ children }: { children: React.ReactNode }) {
+interface CRTContainerProps {
+	children: React.ReactNode;
+	isPoweredOn: boolean;
+	onPowerToggle: () => void;
+}
+
+export default function CRTContainer({
+	children,
+	isPoweredOn,
+	onPowerToggle
+}: CRTContainerProps) {
 	const overlayRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		if (!isPoweredOn) return;
+
 		const startTime = performance.now();
 		let animationId: number;
 
@@ -24,23 +36,34 @@ export default function CRTContainer({ children }: { children: React.ReactNode }
 		animate();
 
 		return () => cancelAnimationFrame(animationId);
-	}, []);
+	}, [isPoweredOn]);
 
 	return (
 		<div className="crt-root">
 			<div className="crt-monitor">
 				<div className="crt-bezel">
-					<div className="crt-screen">
-						<div className="crt-content" ref={overlayRef}>
-							{children}
-						</div>
+					<div className={`crt-screen ${!isPoweredOn ? "crt-screen-off" : ""}`}>
+						{isPoweredOn && (
+							<div className="crt-content" ref={overlayRef}>
+								{children}
+							</div>
+						)}
 						<div className="crt-scanlines" />
 						<div className="crt-vignette" />
 						<div className="crt-glass-highlight" />
 						<div className="crt-rgb-shift" />
 					</div>
 				</div>
-				{/* brand */}
+				<div className="crt-controls">
+					<div className={`crt-led ${isPoweredOn ? "crt-led-on" : "crt-led-off"}`} />
+					<button
+						className="crt-power-button"
+						onClick={onPowerToggle}
+						aria-label={isPoweredOn ? "Turn off monitor" : "Turn on monitor"}
+					>
+						<span className="crt-power-icon">⏻</span>
+					</button>
+				</div>
 				<div className="crt-brand">BOKATRON</div>
 			</div>
 		</div>

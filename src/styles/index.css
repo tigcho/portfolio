@@ -1,6 +1,7 @@
 @import './crt.css';
 @import './desktop.css';
 @import './apps.css';
+@import './boot.css';
 
 @font-face {
     font-family: 'W95FA';
