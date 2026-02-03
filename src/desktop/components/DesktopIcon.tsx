@@ -1,5 +1,10 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import type { ReactNode } from "react";
+
+export interface IconPosition {
+	x: number;
+	y: number;
+}
 
 interface DesktopIconProps {
 	title: string;
@@ -7,6 +12,9 @@ interface DesktopIconProps {
 	onOpen: () => void;
 	isSelected: boolean;
 	onSelect: () => void;
+	position: IconPosition;
+	onDrag: (x: number, y: number) => void;
+	onDragEnd: (x: number, y: number) => void;
 }
 
 export default function DesktopIcon({
@@ -15,25 +23,95 @@ export default function DesktopIcon({
 	onOpen,
 	isSelected,
 	onSelect,
+	position,
+	onDrag,
+	onDragEnd,
 }: DesktopIconProps) {
 	const [isHovered, setIsHovered] = useState(false);
+	const [isDragging, setIsDragging] = useState(false);
+
+	const dragStateRef = useRef<{
+		startX: number;
+		startY: number;
+		iconX: number;
+		iconY: number;
+		hasMoved: boolean;
+	} | null>(null);
+
+	const positionRef = useRef(position);
+	positionRef.current = position;
 
 	const handleDoubleClick = useCallback(
 		(e: React.MouseEvent) => {
 			e.preventDefault();
 			e.stopPropagation();
-			onOpen();
+			if (!dragStateRef.current?.hasMoved) {
+				onOpen();
+			}
 		},
 		[onOpen]
 	);
 
 	const handleMouseDown = useCallback(
 		(e: React.MouseEvent) => {
+			if (e.button !== 0) return;
+
 			e.stopPropagation();
+			e.preventDefault();
 			onSelect();
+
+			dragStateRef.current = {
+				startX: e.clientX,
+				startY: e.clientY,
+				iconX: position.x,
+				iconY: position.y,
+				hasMoved: false,
+			};
 		},
-		[onSelect]
+		[onSelect, position]
 	);
+
+	useEffect(() => {
+		const handleMouseMove = (e: MouseEvent) => {
+			if (!dragStateRef.current) return;
+
+			const dx = e.clientX - dragStateRef.current.startX;
+			const dy = e.clientY - dragStateRef.current.startY;
+
+			if (!dragStateRef.current.hasMoved && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) {
+				dragStateRef.current.hasMoved = true;
+				setIsDragging(true);
+			}
+
+			if (dragStateRef.current.hasMoved) {
+				const newX = Math.max(0, dragStateRef.current.iconX + dx);
+				const newY = Math.max(0, dragStateRef.current.iconY + dy);
+				onDrag(newX, newY);
+			}
+		};
+
+		const handleMouseUp = () => {
+			if (!dragStateRef.current) return;
+
+			if (dragStateRef.current.hasMoved) {
+				onDragEnd(positionRef.current.x, positionRef.current.y);
+			}
+
+			dragStateRef.current = null;
+
+			requestAnimationFrame(() => {
+				setIsDragging(false);
+			});
+		};
+
+		window.addEventListener('mousemove', handleMouseMove);
+		window.addEventListener('mouseup', handleMouseUp);
+
+		return () => {
+			window.removeEventListener('mousemove', handleMouseMove);
+			window.removeEventListener('mouseup', handleMouseUp);
+		};
+	}, [onDrag, onDragEnd]);
 
 	const handleKeyDown = useCallback(
 		(e: React.KeyboardEvent) => {
@@ -56,6 +134,16 @@ export default function DesktopIcon({
 			aria-label={`Open ${title}`}
 			data-selected={isSelected}
 			data-hovered={isHovered}
+			data-dragging={isDragging}
+			style={{
+				position: 'absolute',
+				left: `${position.x}px`,
+				top: `${position.y}px`,
+				cursor: isDragging ? 'grabbing' : 'pointer',
+				transition: isDragging ? 'none' : 'left 0.15s ease-out, top 0.15s ease-out',
+				zIndex: isDragging ? 1000 : 1,
+				userSelect: 'none',
+			}}
 		>
 			<div
 				className="desktop-icon-highlight"

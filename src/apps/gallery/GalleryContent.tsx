@@ -10,6 +10,7 @@ export default function GalleryContent() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 	const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+	const [loadedThumbnails, setLoadedThumbnails] = useState<Set<number>>(new Set());
 
 	useEffect(() => {
 		fetch(import.meta.env.BASE_URL + "gallery.txt")
@@ -32,12 +33,38 @@ export default function GalleryContent() {
 
 				setImages(loadedImages);
 				setLoading(false);
+
+				const initialBatch = new Set<number>();
+				for (let i = 0; i < Math.min(12, loadedImages.length); i++) {
+					initialBatch.add(i);
+				}
+				setLoadedThumbnails(initialBatch);
 			})
 			.catch((err) => {
 				setError(err.message);
 				setLoading(false);
 			});
 	}, []);
+
+	useEffect(() => {
+		if (images.length <= 12) return;
+
+		const loadInBatches = async () => {
+			const batchSize = 12;
+			for (let i = 12; i < images.length; i += batchSize) {
+				await new Promise(resolve => setTimeout(resolve, 300));
+				setLoadedThumbnails(prev => {
+					const newSet = new Set(prev);
+					for (let j = i; j < Math.min(i + batchSize, images.length); j++) {
+						newSet.add(j);
+					}
+					return newSet;
+				});
+			}
+		};
+
+		loadInBatches();
+	}, [images.length]);
 
 	const handlePrev = useCallback(() => {
 		setSelectedIndex((current) => {
@@ -111,14 +138,17 @@ export default function GalleryContent() {
 						onClick={() => setSelectedIndex(i)}
 						title={img.name}
 					>
-						<img src={img.src} alt={img.name} loading="lazy" />
+						{loadedThumbnails.has(i) ? (
+							<img src={img.src} alt={img.name} loading="lazy" />
+						) : (
+							<div className="gallery-thumbnail-placeholder">⏳</div>
+						)}
 					</button>
 				))}
 			</div>
 
 			{selectedImage && selectedIndex !== null && (
 				<div className="gallery-lightbox">
-					{/* Fixed header */}
 					<div className="gallery-lightbox-header">
 						<div className="gallery-lightbox-title">
 							{selectedImage.name}

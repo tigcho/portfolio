@@ -53,3 +53,6 @@
 /images/ufffff_koefte.jpg
 /images/urquiza.jpg
 /images/was_it_a_dream.jpg
+/images/bokita_en_goereme.jpg
+/images/porto_sun.jpg
+/images/das_auto_vom_hegau.jpeg

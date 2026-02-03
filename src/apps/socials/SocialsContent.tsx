@@ -36,20 +36,6 @@ export default function SocialsContent() {
 			description: "Code & projects",
 		},
 		{
-			name: "MyAnimeList",
-			url: "https://myanimelist.net/profile/Tigcho",
-			icon: "🍥",
-			username: "Tigcho",
-			description: "Anime & manga list",
-		},
-		{
-			name: "Steam",
-			url: "https://steamcommunity.com/profiles/76561199206138363/",
-			icon: "🎮",
-			username: "tigcho",
-			description: "Gaming profile",
-		},
-		{
 			name: "RateYourMusic",
 			url: "https://rateyourmusic.com/~tigchoo",
 			icon: "💿",

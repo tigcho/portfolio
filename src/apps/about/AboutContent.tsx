@@ -15,9 +15,10 @@ export default function AboutContent() {
 				</blockquote>
 				<div className="about-bio">
 					<p>
-						I'm interested in exploring the inner workings of technologies,
-						discovering media from cultures different from mine, and sometimes
-						just immersing myself in a video game.
+						Hi, my name is Selin! I’m passionate about exploring the inner workings of technology,
+						discovering media from cultures different from my own, and sometimes simply immersing myself in a good video game.
+						I tend to think deeply about things, and I prefer taking my time to understand them thoroughly.
+						I value honesty, authenticity, and freedom in all aspects of life, and I strive to live by these principles every day.
 					</p>
 				</div>
 			</section>
