@@ -1,10 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import type { ReactNode } from "react";
-
-export interface IconPosition {
-	x: number;
-	y: number;
-}
+import type { IconPosition } from "./DesktopGrid";
 
 interface DesktopIconProps {
 	title: string;
@@ -27,7 +23,6 @@ export default function DesktopIcon({
 	onDrag,
 	onDragEnd,
 }: DesktopIconProps) {
-	const [isHovered, setIsHovered] = useState(false);
 	const [isDragging, setIsDragging] = useState(false);
 
 	const dragStateRef = useRef<{
@@ -41,86 +36,63 @@ export default function DesktopIcon({
 	const positionRef = useRef(position);
 	positionRef.current = position;
 
-	const handleDoubleClick = useCallback(
-		(e: React.MouseEvent) => {
-			e.preventDefault();
-			e.stopPropagation();
-			if (!dragStateRef.current?.hasMoved) {
-				onOpen();
-			}
-		},
-		[onOpen]
-	);
+	const handleDoubleClick = useCallback((e: React.MouseEvent) => {
+		e.preventDefault();
+		e.stopPropagation();
+		if (!dragStateRef.current?.hasMoved) onOpen();
+	}, [onOpen]);
 
-	const handleMouseDown = useCallback(
-		(e: React.MouseEvent) => {
-			if (e.button !== 0) return;
-
-			e.stopPropagation();
-			e.preventDefault();
-			onSelect();
-
-			dragStateRef.current = {
-				startX: e.clientX,
-				startY: e.clientY,
-				iconX: position.x,
-				iconY: position.y,
-				hasMoved: false,
-			};
-		},
-		[onSelect, position]
-	);
+	const handleMouseDown = useCallback((e: React.MouseEvent) => {
+		if (e.button !== 0) return;
+		e.stopPropagation();
+		e.preventDefault();
+		onSelect();
+		dragStateRef.current = {
+			startX: e.clientX,
+			startY: e.clientY,
+			iconX: position.x,
+			iconY: position.y,
+			hasMoved: false,
+		};
+	}, [onSelect, position]);
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
 			if (!dragStateRef.current) return;
-
 			const dx = e.clientX - dragStateRef.current.startX;
 			const dy = e.clientY - dragStateRef.current.startY;
-
 			if (!dragStateRef.current.hasMoved && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) {
 				dragStateRef.current.hasMoved = true;
 				setIsDragging(true);
 			}
-
 			if (dragStateRef.current.hasMoved) {
-				const newX = Math.max(0, dragStateRef.current.iconX + dx);
-				const newY = Math.max(0, dragStateRef.current.iconY + dy);
-				onDrag(newX, newY);
+				onDrag(
+					Math.max(0, dragStateRef.current.iconX + dx),
+					Math.max(0, dragStateRef.current.iconY + dy),
+				);
 			}
 		};
 
 		const handleMouseUp = () => {
 			if (!dragStateRef.current) return;
-
 			if (dragStateRef.current.hasMoved) {
 				onDragEnd(positionRef.current.x, positionRef.current.y);
 			}
-
 			dragStateRef.current = null;
-
-			requestAnimationFrame(() => {
-				setIsDragging(false);
-			});
+			requestAnimationFrame(() => setIsDragging(false));
 		};
 
-		window.addEventListener('mousemove', handleMouseMove);
-		window.addEventListener('mouseup', handleMouseUp);
-
+		window.addEventListener("mousemove", handleMouseMove);
+		window.addEventListener("mouseup", handleMouseUp);
 		return () => {
-			window.removeEventListener('mousemove', handleMouseMove);
-			window.removeEventListener('mouseup', handleMouseUp);
+			window.removeEventListener("mousemove", handleMouseMove);
+			window.removeEventListener("mouseup", handleMouseUp);
 		};
 	}, [onDrag, onDragEnd]);
 
-	const handleKeyDown = useCallback(
-		(e: React.KeyboardEvent) => {
-			if (e.key === "Enter") {
-				onOpen();
-			}
-		},
-		[onOpen]
-	);
+	const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+		if (e.key === "Enter") onOpen();
+	}, [onOpen]);
 
 	return (
 		<button
@@ -128,40 +100,23 @@ export default function DesktopIcon({
 			onMouseDown={handleMouseDown}
 			onDoubleClick={handleDoubleClick}
 			onKeyDown={handleKeyDown}
-			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}
 			className="desktop-icon-button"
 			aria-label={`Open ${title}`}
 			data-selected={isSelected}
-			data-hovered={isHovered}
 			data-dragging={isDragging}
 			style={{
-				position: 'absolute',
+				position: "absolute",
 				left: `${position.x}px`,
 				top: `${position.y}px`,
-				cursor: isDragging ? 'grabbing' : 'pointer',
-				transition: isDragging ? 'none' : 'left 0.15s ease-out, top 0.15s ease-out',
+				cursor: isDragging ? "grabbing" : "pointer",
+				transition: isDragging ? "none" : "left 0.15s ease-out, top 0.15s ease-out",
 				zIndex: isDragging ? 1000 : 1,
-				userSelect: 'none',
 			}}
 		>
-			<div
-				className="desktop-icon-highlight"
-				data-visible={isHovered && !isSelected}
-			/>
-
-			<div
-				className="desktop-icon-selection"
-				data-visible={isSelected}
-			/>
-
-			<div className="desktop-icon-image">
-				{icon}
-			</div>
-
-			<div className="desktop-icon-label" data-selected={isSelected}>
-				{title}
-			</div>
+			<div className="desktop-icon-highlight" />
+			<div className="desktop-icon-selection" data-visible={isSelected} />
+			<div className="desktop-icon-image">{icon}</div>
+			<div className="desktop-icon-label" data-selected={isSelected}>{title}</div>
 		</button>
 	);
 }

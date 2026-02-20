@@ -1,6 +1,7 @@
-import { useMemo, useState, useCallback, useLayoutEffect } from "react";
+import { useMemo, useState, useCallback, useLayoutEffect, useRef } from "react";
 import { APPS } from "../../apps/registry";
-import type { AppId, DesktopApp } from "../../apps/types";
+import type { AppId } from "../../apps/registry";
+import type { DesktopApp } from "../../apps/types";
 import Window from "./Window";
 
 type WindowInstance = {
@@ -27,18 +28,11 @@ interface WindowManagerProps {
 	containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export default function WindowManager({
-	children,
-	containerRef,
-}: WindowManagerProps) {
-	const appsById = useMemo(() => {
-		const map = new Map<AppId, DesktopApp>();
-		for (const app of APPS) map.set(app.id, app);
-		return map;
-	}, []);
+const APPS_BY_ID = new Map<AppId, DesktopApp>(APPS.map((app) => [app.id, app]));
 
+export default function WindowManager({ children, containerRef }: WindowManagerProps) {
 	const [windows, setWindows] = useState<WindowInstance[]>([]);
-	const [zTop, setZTop] = useState(10);
+	const zTopRef = useRef(10);
 	const [containerSize, setContainerSize] = useState({ width: 800, height: 600 });
 
 	useLayoutEffect(() => {
@@ -50,67 +44,35 @@ export default function WindowManager({
 				});
 			}
 		};
-
 		updateSize();
-
 		const resizeObserver = new ResizeObserver(updateSize);
-		if (containerRef.current) {
-			resizeObserver.observe(containerRef.current);
-		}
-
+		if (containerRef.current) resizeObserver.observe(containerRef.current);
 		return () => resizeObserver.disconnect();
 	}, [containerRef]);
 
-	const openApp = useCallback(
-		(appId: AppId) => {
-			const app = appsById.get(appId);
-			if (!app) return;
-
-			const instanceId = `${appId}-${crypto.randomUUID()}`;
-
-			const w = Math.min(app.initialSize?.w ?? 480, containerSize.width - 20);
-			const h = Math.min(app.initialSize?.h ?? 320, containerSize.height - 20);
-
-			setWindows((prev) => {
-				const existingCount = prev.filter((win) => win.appId === appId).length;
-				const offset = existingCount * 24;
-
-				const maxX = Math.max(0, containerSize.width - w);
-				const maxY = Math.max(0, containerSize.height - h);
-
-				const baseX = app.initialPos?.x ?? 60;
-				const baseY = app.initialPos?.y ?? 30;
-
-				const x = Math.min(baseX + offset, maxX);
-				const y = Math.min(baseY + offset, maxY);
-
-				const maxZ = prev.reduce((max, win) => Math.max(max, win.z), zTop);
-				const newZ = maxZ + 1;
-
-				return [
-					...prev,
-					{ instanceId, appId, x, y, w, h, z: newZ, minimized: false },
-				];
-			});
-
-			setZTop((currentZ) => currentZ + 1);
-		},
-		[appsById, zTop, containerSize]
-	);
-
 	const focus = useCallback((instanceId: string) => {
-		setZTop((currentZ) => {
-			const newZ = currentZ + 1;
-			setWindows((prev) =>
-				prev.map((w) =>
-					w.instanceId === instanceId
-						? { ...w, z: newZ, minimized: false }
-						: w
-				)
-			);
-			return newZ;
-		});
+		const newZ = ++zTopRef.current;
+		setWindows((prev) =>
+			prev.map((w) => w.instanceId === instanceId ? { ...w, z: newZ, minimized: false } : w)
+		);
 	}, []);
+
+	const openApp = useCallback((appId: AppId) => {
+		const app = APPS_BY_ID.get(appId);
+		if (!app) return;
+
+		const instanceId = `${appId}-${crypto.randomUUID()}`;
+		const w = Math.min(app.initialSize?.w ?? 480, containerSize.width - 20);
+		const h = Math.min(app.initialSize?.h ?? 320, containerSize.height - 20);
+		const newZ = ++zTopRef.current;
+
+		setWindows((prev) => {
+			const offset = prev.filter((win) => win.appId === appId).length * 24;
+			const x = Math.min((app.initialPos?.x ?? 60) + offset, Math.max(0, containerSize.width - w));
+			const y = Math.min((app.initialPos?.y ?? 30) + offset, Math.max(0, containerSize.height - h));
+			return [...prev, { instanceId, appId, x, y, w, h, z: newZ, minimized: false }];
+		});
+	}, [containerSize]);
 
 	const close = useCallback((instanceId: string) => {
 		setWindows((prev) => prev.filter((w) => w.instanceId !== instanceId));
@@ -118,51 +80,32 @@ export default function WindowManager({
 
 	const minimize = useCallback((instanceId: string) => {
 		setWindows((prev) =>
-			prev.map((w) =>
-				w.instanceId === instanceId ? { ...w, minimized: true } : w
-			)
+			prev.map((w) => w.instanceId === instanceId ? { ...w, minimized: true } : w)
 		);
 	}, []);
 
-	const restore = useCallback(
-		(instanceId: string) => {
-			focus(instanceId);
-		},
-		[focus]
-	);
-
-	const moveResize = useCallback(
-		(
-			instanceId: string,
-			patch: Partial<Pick<WindowInstance, "x" | "y" | "w" | "h">>
-		) => {
-			setWindows((prev) =>
-				prev.map((w) =>
-					w.instanceId === instanceId ? { ...w, ...patch } : w
-				)
-			);
-		},
-		[]
-	);
+	const moveResize = useCallback((
+		instanceId: string,
+		patch: Partial<Pick<WindowInstance, "x" | "y" | "w" | "h">>
+	) => {
+		setWindows((prev) =>
+			prev.map((w) => w.instanceId === instanceId ? { ...w, ...patch } : w)
+		);
+	}, []);
 
 	const visibleWindows = useMemo(
-		() =>
-			windows
-				.filter((w) => !w.minimized)
-				.sort((a, b) => a.z - b.z),
+		() => windows.filter((w) => !w.minimized).sort((a, b) => a.z - b.z),
 		[windows]
 	);
 
 	return (
 		<>
-			{children({ openApp, focus, restore, minimize, windows })}
+			{children({ openApp, focus, restore: focus, minimize, windows })}
 
 			{visibleWindows.map((win) => {
-				const app = appsById.get(win.appId);
+				const app = APPS_BY_ID.get(win.appId);
 				if (!app) return null;
-
 				const AppComponent = app.component;
-
 				return (
 					<Window
 						key={win.instanceId}

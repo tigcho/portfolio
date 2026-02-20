@@ -9,7 +9,6 @@
     --win-black: #000000;
     --win-blue: #000080;
     --win-blue-light: #1084d0;
-    --taskbar-height: 28px;
 }
 
 /* ==================== DESKTOP ==================== */
@@ -57,6 +56,7 @@
     outline: none;
     font-family: "W95FA", "MS Sans Serif", Tahoma, sans-serif;
     pointer-events: auto;
+    z-index: 1;
 }
 
 .desktop-icon-highlight {
@@ -69,8 +69,12 @@
     transition: opacity 0.1s;
 }
 
-.desktop-icon-highlight[data-visible="true"] {
+.desktop-icon-button:hover .desktop-icon-highlight {
     opacity: 1;
+}
+
+.desktop-icon-button[data-dragging="true"] .desktop-icon-highlight {
+    opacity: 0;
 }
 
 .desktop-icon-selection {
@@ -118,25 +122,13 @@
     pointer-events: none;
     z-index: 0;
     border-radius: 2px;
-    transition: all 0.1s ease-out;
+    background-color: rgba(192, 192, 192, 0.3);
+    border: 2px dashed #808080;
+    transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
 }
-
-.desktop-icon-button {
-    position: relative;
-    width: 75px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 4px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    font-family: "W95FA", "MS Sans Serif", Tahoma, sans-serif;
-    pointer-events: auto;
-    z-index: 1;
+.grid-highlight--occupied {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-color: #ff0000;
 }
 
 /* ==================== WINDOW ==================== */
@@ -222,12 +214,12 @@
 }
 
 .retro-window-btn {
-    width: 16px;
-    height: 14px;
+    width: 20px;
+    height: 18px;
     background: var(--win-gray);
     border: 1px solid;
     border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
-    font-size: 9px;
+    font-size: 11px;
     font-weight: bold;
     color: #000;
     cursor: pointer;
@@ -288,7 +280,6 @@
 /* ==================== TASKBAR ==================== */
 
 .retro-taskbar {
-    height: var(--taskbar-height);
     flex-shrink: 0;
     background: var(--win-gray);
     border-top: 2px solid var(--win-light);
@@ -420,11 +411,6 @@
 /* ==================== DESKTOP RESPONSIVE ==================== */
 
 @media (max-width: 720px) {
-    .desktop-grid {
-        grid-template-columns: repeat(auto-fill, 65px);
-        grid-template-rows: repeat(auto-fill, 72px);
-    }
-
     .desktop-icon-button {
         width: 65px;
         height: 72px;

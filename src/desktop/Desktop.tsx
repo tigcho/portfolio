@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import DesktopGrid from "./components/DesktopGrid";
 import WindowManager from "./components/WindowManager";

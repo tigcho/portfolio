@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import "../styles/index.css";
 
@@ -9,32 +7,22 @@ interface CRTContainerProps {
 	onPowerToggle: () => void;
 }
 
-export default function CRTContainer({
-	children,
-	isPoweredOn,
-	onPowerToggle
-}: CRTContainerProps) {
+export default function CRTContainer({ children, isPoweredOn, onPowerToggle }: CRTContainerProps) {
 	const overlayRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (!isPoweredOn) return;
-
 		const startTime = performance.now();
 		let animationId: number;
-
 		const animate = () => {
 			const time = (performance.now() - startTime) / 1000;
-
-			if (overlayRef.current) {
-				const flicker = 0.97 + 0.03 * Math.sin(time * 8) * Math.sin(time * 13);
-				overlayRef.current.style.setProperty("--flicker", flicker.toString());
-			}
-
+			overlayRef.current?.style.setProperty(
+				"--flicker",
+				(0.97 + 0.03 * Math.sin(time * 8) * Math.sin(time * 13)).toString()
+			);
 			animationId = requestAnimationFrame(animate);
 		};
-
 		animate();
-
 		return () => cancelAnimationFrame(animationId);
 	}, [isPoweredOn]);
 

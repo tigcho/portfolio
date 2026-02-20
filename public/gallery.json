@@ -1,0 +1,698 @@
+[
+  {
+    "id": "26",
+    "original": "images/26.jpg",
+    "thumb": {
+      "avif": "images/thumb/26-320.avif",
+      "webp": "images/thumb/26-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/26-1280.avif",
+      "webp": "images/mid/26-1280.webp"
+    }
+  },
+  {
+    "id": "antalya",
+    "original": "images/antalya.jpg",
+    "thumb": {
+      "avif": "images/thumb/antalya-320.avif",
+      "webp": "images/thumb/antalya-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/antalya-1280.avif",
+      "webp": "images/mid/antalya-1280.webp"
+    }
+  },
+  {
+    "id": "blue",
+    "original": "images/blue.jpg",
+    "thumb": {
+      "avif": "images/thumb/blue-320.avif",
+      "webp": "images/thumb/blue-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/blue-1280.avif",
+      "webp": "images/mid/blue-1280.webp"
+    }
+  },
+  {
+    "id": "boat",
+    "original": "images/boat.jpg",
+    "thumb": {
+      "avif": "images/thumb/boat-320.avif",
+      "webp": "images/thumb/boat-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/boat-1280.avif",
+      "webp": "images/mid/boat-1280.webp"
+    }
+  },
+  {
+    "id": "bodensee",
+    "original": "images/bodensee.jpg",
+    "thumb": {
+      "avif": "images/thumb/bodensee-320.avif",
+      "webp": "images/thumb/bodensee-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/bodensee-1280.avif",
+      "webp": "images/mid/bodensee-1280.webp"
+    }
+  },
+  {
+    "id": "bokita_en_goereme",
+    "original": "images/bokita_en_goereme.jpg",
+    "thumb": {
+      "avif": "images/thumb/bokita_en_goereme-320.avif",
+      "webp": "images/thumb/bokita_en_goereme-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/bokita_en_goereme-1280.avif",
+      "webp": "images/mid/bokita_en_goereme-1280.webp"
+    }
+  },
+  {
+    "id": "bombonera",
+    "original": "images/bombonera.jpg",
+    "thumb": {
+      "avif": "images/thumb/bombonera-320.avif",
+      "webp": "images/thumb/bombonera-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/bombonera-1280.avif",
+      "webp": "images/mid/bombonera-1280.webp"
+    }
+  },
+  {
+    "id": "bregenz",
+    "original": "images/bregenz.jpg",
+    "thumb": {
+      "avif": "images/thumb/bregenz-320.avif",
+      "webp": "images/thumb/bregenz-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/bregenz-1280.avif",
+      "webp": "images/mid/bregenz-1280.webp"
+    }
+  },
+  {
+    "id": "bregenz2",
+    "original": "images/bregenz2.jpg",
+    "thumb": {
+      "avif": "images/thumb/bregenz2-320.avif",
+      "webp": "images/thumb/bregenz2-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/bregenz2-1280.avif",
+      "webp": "images/mid/bregenz2-1280.webp"
+    }
+  },
+  {
+    "id": "cancha",
+    "original": "images/cancha.jpg",
+    "thumb": {
+      "avif": "images/thumb/cancha-320.avif",
+      "webp": "images/thumb/cancha-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/cancha-1280.avif",
+      "webp": "images/mid/cancha-1280.webp"
+    }
+  },
+  {
+    "id": "casa",
+    "original": "images/casa.jpeg",
+    "thumb": {
+      "avif": "images/thumb/casa-320.avif",
+      "webp": "images/thumb/casa-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/casa-1280.avif",
+      "webp": "images/mid/casa-1280.webp"
+    }
+  },
+  {
+    "id": "casa_de_luca",
+    "original": "images/casa_de_luca.jpg",
+    "thumb": {
+      "avif": "images/thumb/casa_de_luca-320.avif",
+      "webp": "images/thumb/casa_de_luca-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/casa_de_luca-1280.avif",
+      "webp": "images/mid/casa_de_luca-1280.webp"
+    }
+  },
+  {
+    "id": "das_auto_vom_hegau",
+    "original": "images/das_auto_vom_hegau.jpeg",
+    "thumb": {
+      "avif": "images/thumb/das_auto_vom_hegau-320.avif",
+      "webp": "images/thumb/das_auto_vom_hegau-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/das_auto_vom_hegau-1280.avif",
+      "webp": "images/mid/das_auto_vom_hegau-1280.webp"
+    }
+  },
+  {
+    "id": "der_teich",
+    "original": "images/der_teich.jpg",
+    "thumb": {
+      "avif": "images/thumb/der_teich-320.avif",
+      "webp": "images/thumb/der_teich-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/der_teich-1280.avif",
+      "webp": "images/mid/der_teich-1280.webp"
+    }
+  },
+  {
+    "id": "du_bist_ein_loewe",
+    "original": "images/du_bist_ein_loewe.jpg",
+    "thumb": {
+      "avif": "images/thumb/du_bist_ein_loewe-320.avif",
+      "webp": "images/thumb/du_bist_ein_loewe-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/du_bist_ein_loewe-1280.avif",
+      "webp": "images/mid/du_bist_ein_loewe-1280.webp"
+    }
+  },
+  {
+    "id": "er_existiert",
+    "original": "images/er_existiert.jpg",
+    "thumb": {
+      "avif": "images/thumb/er_existiert-320.avif",
+      "webp": "images/thumb/er_existiert-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/er_existiert-1280.avif",
+      "webp": "images/mid/er_existiert-1280.webp"
+    }
+  },
+  {
+    "id": "from_above",
+    "original": "images/from_above.jpg",
+    "thumb": {
+      "avif": "images/thumb/from_above-320.avif",
+      "webp": "images/thumb/from_above-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/from_above-1280.avif",
+      "webp": "images/mid/from_above-1280.webp"
+    }
+  },
+  {
+    "id": "gate",
+    "original": "images/gate.jpg",
+    "thumb": {
+      "avif": "images/thumb/gate-320.avif",
+      "webp": "images/thumb/gate-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/gate-1280.avif",
+      "webp": "images/mid/gate-1280.webp"
+    }
+  },
+  {
+    "id": "gato",
+    "original": "images/gato.jpg",
+    "thumb": {
+      "avif": "images/thumb/gato-320.avif",
+      "webp": "images/thumb/gato-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/gato-1280.avif",
+      "webp": "images/mid/gato-1280.webp"
+    }
+  },
+  {
+    "id": "gatze",
+    "original": "images/gatze.jpg",
+    "thumb": {
+      "avif": "images/thumb/gatze-320.avif",
+      "webp": "images/thumb/gatze-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/gatze-1280.avif",
+      "webp": "images/mid/gatze-1280.webp"
+    }
+  },
+  {
+    "id": "horizon",
+    "original": "images/horizon.jpg",
+    "thumb": {
+      "avif": "images/thumb/horizon-320.avif",
+      "webp": "images/thumb/horizon-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/horizon-1280.avif",
+      "webp": "images/mid/horizon-1280.webp"
+    }
+  },
+  {
+    "id": "i_like_reflections",
+    "original": "images/i_like_reflections.jpg",
+    "thumb": {
+      "avif": "images/thumb/i_like_reflections-320.avif",
+      "webp": "images/thumb/i_like_reflections-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/i_like_reflections-1280.avif",
+      "webp": "images/mid/i_like_reflections-1280.webp"
+    }
+  },
+  {
+    "id": "in_love",
+    "original": "images/in_love.jpg",
+    "thumb": {
+      "avif": "images/thumb/in_love-320.avif",
+      "webp": "images/thumb/in_love-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/in_love-1280.avif",
+      "webp": "images/mid/in_love-1280.webp"
+    }
+  },
+  {
+    "id": "it_looks_like_its_moving",
+    "original": "images/it_looks_like_its_moving.jpg",
+    "thumb": {
+      "avif": "images/thumb/it_looks_like_its_moving-320.avif",
+      "webp": "images/thumb/it_looks_like_its_moving-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/it_looks_like_its_moving-1280.avif",
+      "webp": "images/mid/it_looks_like_its_moving-1280.webp"
+    }
+  },
+  {
+    "id": "it_was_real",
+    "original": "images/it_was_real.jpg",
+    "thumb": {
+      "avif": "images/thumb/it_was_real-320.avif",
+      "webp": "images/thumb/it_was_real-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/it_was_real-1280.avif",
+      "webp": "images/mid/it_was_real-1280.webp"
+    }
+  },
+  {
+    "id": "kentucky",
+    "original": "images/kentucky.jpg",
+    "thumb": {
+      "avif": "images/thumb/kentucky-320.avif",
+      "webp": "images/thumb/kentucky-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/kentucky-1280.avif",
+      "webp": "images/mid/kentucky-1280.webp"
+    }
+  },
+  {
+    "id": "kerpe",
+    "original": "images/kerpe.jpg",
+    "thumb": {
+      "avif": "images/thumb/kerpe-320.avif",
+      "webp": "images/thumb/kerpe-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/kerpe-1280.avif",
+      "webp": "images/mid/kerpe-1280.webp"
+    }
+  },
+  {
+    "id": "konstanz",
+    "original": "images/konstanz.jpg",
+    "thumb": {
+      "avif": "images/thumb/konstanz-320.avif",
+      "webp": "images/thumb/konstanz-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/konstanz-1280.avif",
+      "webp": "images/mid/konstanz-1280.webp"
+    }
+  },
+  {
+    "id": "la_boca",
+    "original": "images/la_boca.jpg",
+    "thumb": {
+      "avif": "images/thumb/la_boca-320.avif",
+      "webp": "images/thumb/la_boca-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/la_boca-1280.avif",
+      "webp": "images/mid/la_boca-1280.webp"
+    }
+  },
+  {
+    "id": "london",
+    "original": "images/london.jpg",
+    "thumb": {
+      "avif": "images/thumb/london-320.avif",
+      "webp": "images/thumb/london-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/london-1280.avif",
+      "webp": "images/mid/london-1280.webp"
+    }
+  },
+  {
+    "id": "london2",
+    "original": "images/london2.jpg",
+    "thumb": {
+      "avif": "images/thumb/london2-320.avif",
+      "webp": "images/thumb/london2-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/london2-1280.avif",
+      "webp": "images/mid/london2-1280.webp"
+    }
+  },
+  {
+    "id": "luca_not_dead",
+    "original": "images/luca_not_dead.jpg",
+    "thumb": {
+      "avif": "images/thumb/luca_not_dead-320.avif",
+      "webp": "images/thumb/luca_not_dead-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/luca_not_dead-1280.avif",
+      "webp": "images/mid/luca_not_dead-1280.webp"
+    }
+  },
+  {
+    "id": "match_day",
+    "original": "images/match_day.jpg",
+    "thumb": {
+      "avif": "images/thumb/match_day-320.avif",
+      "webp": "images/thumb/match_day-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/match_day-1280.avif",
+      "webp": "images/mid/match_day-1280.webp"
+    }
+  },
+  {
+    "id": "medianeras",
+    "original": "images/medianeras.jpg",
+    "thumb": {
+      "avif": "images/thumb/medianeras-320.avif",
+      "webp": "images/thumb/medianeras-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/medianeras-1280.avif",
+      "webp": "images/mid/medianeras-1280.webp"
+    }
+  },
+  {
+    "id": "messi",
+    "original": "images/messi.jpg",
+    "thumb": {
+      "avif": "images/thumb/messi-320.avif",
+      "webp": "images/thumb/messi-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/messi-1280.avif",
+      "webp": "images/mid/messi-1280.webp"
+    }
+  },
+  {
+    "id": "mosque",
+    "original": "images/mosque.jpg",
+    "thumb": {
+      "avif": "images/thumb/mosque-320.avif",
+      "webp": "images/thumb/mosque-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/mosque-1280.avif",
+      "webp": "images/mid/mosque-1280.webp"
+    }
+  },
+  {
+    "id": "obelisco",
+    "original": "images/obelisco.jpg",
+    "thumb": {
+      "avif": "images/thumb/obelisco-320.avif",
+      "webp": "images/thumb/obelisco-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/obelisco-1280.avif",
+      "webp": "images/mid/obelisco-1280.webp"
+    }
+  },
+  {
+    "id": "obelisco2",
+    "original": "images/obelisco2.jpg",
+    "thumb": {
+      "avif": "images/thumb/obelisco2-320.avif",
+      "webp": "images/thumb/obelisco2-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/obelisco2-1280.avif",
+      "webp": "images/mid/obelisco2-1280.webp"
+    }
+  },
+  {
+    "id": "obelisco3",
+    "original": "images/obelisco3.jpg",
+    "thumb": {
+      "avif": "images/thumb/obelisco3-320.avif",
+      "webp": "images/thumb/obelisco3-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/obelisco3-1280.avif",
+      "webp": "images/mid/obelisco3-1280.webp"
+    }
+  },
+  {
+    "id": "palermo_ferreteria",
+    "original": "images/palermo_ferreteria.jpg",
+    "thumb": {
+      "avif": "images/thumb/palermo_ferreteria-320.avif",
+      "webp": "images/thumb/palermo_ferreteria-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/palermo_ferreteria-1280.avif",
+      "webp": "images/mid/palermo_ferreteria-1280.webp"
+    }
+  },
+  {
+    "id": "perrito",
+    "original": "images/perrito.jpg",
+    "thumb": {
+      "avif": "images/thumb/perrito-320.avif",
+      "webp": "images/thumb/perrito-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/perrito-1280.avif",
+      "webp": "images/mid/perrito-1280.webp"
+    }
+  },
+  {
+    "id": "plaza",
+    "original": "images/plaza.jpg",
+    "thumb": {
+      "avif": "images/thumb/plaza-320.avif",
+      "webp": "images/thumb/plaza-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/plaza-1280.avif",
+      "webp": "images/mid/plaza-1280.webp"
+    }
+  },
+  {
+    "id": "porto_sun",
+    "original": "images/porto_sun.jpg",
+    "thumb": {
+      "avif": "images/thumb/porto_sun-320.avif",
+      "webp": "images/thumb/porto_sun-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/porto_sun-1280.avif",
+      "webp": "images/mid/porto_sun-1280.webp"
+    }
+  },
+  {
+    "id": "portofino",
+    "original": "images/portofino.jpg",
+    "thumb": {
+      "avif": "images/thumb/portofino-320.avif",
+      "webp": "images/thumb/portofino-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/portofino-1280.avif",
+      "webp": "images/mid/portofino-1280.webp"
+    }
+  },
+  {
+    "id": "puerto_madero",
+    "original": "images/puerto_madero.jpg",
+    "thumb": {
+      "avif": "images/thumb/puerto_madero-320.avif",
+      "webp": "images/thumb/puerto_madero-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/puerto_madero-1280.avif",
+      "webp": "images/mid/puerto_madero-1280.webp"
+    }
+  },
+  {
+    "id": "puerto_madero2",
+    "original": "images/puerto_madero2.jpg",
+    "thumb": {
+      "avif": "images/thumb/puerto_madero2-320.avif",
+      "webp": "images/thumb/puerto_madero2-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/puerto_madero2-1280.avif",
+      "webp": "images/mid/puerto_madero2-1280.webp"
+    }
+  },
+  {
+    "id": "quinto",
+    "original": "images/quinto.jpg",
+    "thumb": {
+      "avif": "images/thumb/quinto-320.avif",
+      "webp": "images/thumb/quinto-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/quinto-1280.avif",
+      "webp": "images/mid/quinto-1280.webp"
+    }
+  },
+  {
+    "id": "room_view",
+    "original": "images/room_view.jpg",
+    "thumb": {
+      "avif": "images/thumb/room_view-320.avif",
+      "webp": "images/thumb/room_view-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/room_view-1280.avif",
+      "webp": "images/mid/room_view-1280.webp"
+    }
+  },
+  {
+    "id": "room_view2",
+    "original": "images/room_view2.jpg",
+    "thumb": {
+      "avif": "images/thumb/room_view2-320.avif",
+      "webp": "images/thumb/room_view2-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/room_view2-1280.avif",
+      "webp": "images/mid/room_view2-1280.webp"
+    }
+  },
+  {
+    "id": "room_view3",
+    "original": "images/room_view3.jpg",
+    "thumb": {
+      "avif": "images/thumb/room_view3-320.avif",
+      "webp": "images/thumb/room_view3-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/room_view3-1280.avif",
+      "webp": "images/mid/room_view3-1280.webp"
+    }
+  },
+  {
+    "id": "room_view4",
+    "original": "images/room_view4.jpg",
+    "thumb": {
+      "avif": "images/thumb/room_view4-320.avif",
+      "webp": "images/thumb/room_view4-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/room_view4-1280.avif",
+      "webp": "images/mid/room_view4-1280.webp"
+    }
+  },
+  {
+    "id": "the_populist",
+    "original": "images/the_populist.jpg",
+    "thumb": {
+      "avif": "images/thumb/the_populist-320.avif",
+      "webp": "images/thumb/the_populist-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/the_populist-1280.avif",
+      "webp": "images/mid/the_populist-1280.webp"
+    }
+  },
+  {
+    "id": "through_the_looking_glass",
+    "original": "images/through_the_looking_glass.jpg",
+    "thumb": {
+      "avif": "images/thumb/through_the_looking_glass-320.avif",
+      "webp": "images/thumb/through_the_looking_glass-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/through_the_looking_glass-1280.avif",
+      "webp": "images/mid/through_the_looking_glass-1280.webp"
+    }
+  },
+  {
+    "id": "turkish_breakfast_is_awesome",
+    "original": "images/turkish_breakfast_is_awesome.jpg",
+    "thumb": {
+      "avif": "images/thumb/turkish_breakfast_is_awesome-320.avif",
+      "webp": "images/thumb/turkish_breakfast_is_awesome-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/turkish_breakfast_is_awesome-1280.avif",
+      "webp": "images/mid/turkish_breakfast_is_awesome-1280.webp"
+    }
+  },
+  {
+    "id": "turkiye_sun",
+    "original": "images/turkiye_sun.jpg",
+    "thumb": {
+      "avif": "images/thumb/turkiye_sun-320.avif",
+      "webp": "images/thumb/turkiye_sun-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/turkiye_sun-1280.avif",
+      "webp": "images/mid/turkiye_sun-1280.webp"
+    }
+  },
+  {
+    "id": "ufffff_koefte",
+    "original": "images/ufffff_koefte.jpg",
+    "thumb": {
+      "avif": "images/thumb/ufffff_koefte-320.avif",
+      "webp": "images/thumb/ufffff_koefte-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/ufffff_koefte-1280.avif",
+      "webp": "images/mid/ufffff_koefte-1280.webp"
+    }
+  },
+  {
+    "id": "urquiza",
+    "original": "images/urquiza.jpg",
+    "thumb": {
+      "avif": "images/thumb/urquiza-320.avif",
+      "webp": "images/thumb/urquiza-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/urquiza-1280.avif",
+      "webp": "images/mid/urquiza-1280.webp"
+    }
+  },
+  {
+    "id": "was_it_a_dream",
+    "original": "images/was_it_a_dream.jpg",
+    "thumb": {
+      "avif": "images/thumb/was_it_a_dream-320.avif",
+      "webp": "images/thumb/was_it_a_dream-320.webp"
+    },
+    "mid": {
+      "avif": "images/mid/was_it_a_dream-1280.avif",
+      "webp": "images/mid/was_it_a_dream-1280.webp"
+    }
+  }
+]
