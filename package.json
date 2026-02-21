@@ -8,8 +8,7 @@
 	"gen:gallery": "tsx scripts/generate-gallery.ts",
     "build": "npm run gen:gallery && tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

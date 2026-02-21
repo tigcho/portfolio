@@ -17,6 +17,14 @@ const PROJECTS: Project[] = [
 		linkText: "View on GitHub",
 	},
 	{
+		name: "ConjuGaucho",
+		description: "A conjugation practice website featuring the argentine dialect and usage of voseo.",
+		icon: "🖥️",
+		tags: ["Web", "JavaScript", "React", "Vite"],
+		link: "https://tigcho.github.io/conjugaucho/",
+		linkText: "View Site",
+	},
+	{
 		name: "Shufflies '23",
 		description: "Letterboxd Wrapped for a Discord film club. Visualizes movie recommendations and reviews from a community event.",
 		icon: "🎬",
